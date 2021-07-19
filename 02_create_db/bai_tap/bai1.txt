@@ -1,0 +1,6 @@
+B1: Các thực thể: PHIEUXUAT, VATTU, PHIEUNHAP, DONDH, NHACC
+B2: 	PHIEUXUAT là quan hệ n-n với VATTU
+	VATTU là quan hệ n-n với PHIEUNHAP
+	VATTU là quan hệ n-n với DONDH
+	NHACC là quan hệ 1-n với DONDH
+B3: Các thuộc tính đa trị: SĐT
