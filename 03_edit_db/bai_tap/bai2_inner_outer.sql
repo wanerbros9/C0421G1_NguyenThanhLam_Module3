@@ -15,7 +15,14 @@ SELECT customer_name FROM customer
 -- Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn
 -- (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn.
 -- Giá bán của từng loại được tính = odQTY*pPrice)
-SELECT `order`.order_id, `order`.order_date FROM `order`
+
+
+
+SELECT `order`.order_id, `order`.order_date, 
+		(order_detail.order_detail_qty*product.product_price) as money_order
+FROM `order`
+INNER JOIN order_detail ON `order`.order_id = order_detail.order_id
+INNER JOIN product ON product.product_id = order_detail.product_id;
 
 
 

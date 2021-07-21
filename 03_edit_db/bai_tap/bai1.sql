@@ -12,6 +12,7 @@ select * from `subject`
 update student set classid = 2 where studentname = 'hung';
 
 select studentname, mark, subname
+
 FROM student
 		INNER join mark on student.StudentId = mark.StudentId
         inner join `subject` on `subject`.SubId = mark.SubId
