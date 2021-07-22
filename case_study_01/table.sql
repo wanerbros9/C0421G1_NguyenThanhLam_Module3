@@ -21,7 +21,7 @@ CREATE TABLE bo_phan(
 
 CREATE TABLE nhan_vien(
 	id_nhan_vien INT PRIMARY KEY AUTO_INCREMENT,
-    ho_ten VARCHAR(45),
+    ten_nhan_vien VARCHAR(45),
     id_vi_tri INT,
     id_trinh_do INT,
     id_bo_phan INT,
@@ -96,7 +96,7 @@ CREATE TABLE dich_vu_di_kem(
 	id_dich_vu_di_kem INT PRIMARY KEY AUTO_INCREMENT,
     ten_dich_vu_di_kem VARCHAR(45),
     gia INT,
-    don_vi INT,
+    don_vi VARCHAR(45),
     trang_thai_kha_dung VARCHAR(45)
 );
 
@@ -129,7 +129,7 @@ VALUES ('Sale-Marketing'),
 		('Phục vụ'),
 		('Quản lý');
 
-INSERT INTO nhan_vien(ho_ten, id_vi_tri, id_trinh_do, id_bo_phan, ngay_sinh,so_CMTND, luong, sdt, email, dia_chi)
+INSERT INTO nhan_vien(ten_nhan_vien, id_vi_tri, id_trinh_do, id_bo_phan, ngay_sinh,so_CMTND, luong, sdt, email, dia_chi)
 VALUES ('Lâm', 2, 3, 3, '1998-10-16', 201757954, 10000, 0825161098, 'lam@gmail.com', 'Đà Nẵng'),
 		('Khoa', 1, 1, 3, '2000-05-11', 201751546, 5000, 0917657904, 'khoa@gmail.com', 'Huế'),
 		('Tùng', 5, 4, 4, '1992-03-18', 201718628, 35000, 0818467035, 'tung@gmail.com', 'Vinh'),
@@ -143,18 +143,45 @@ VALUES ('Diamond'),
         ('Member');
 
 INSERT INTO khach_hang(id_loai_khach, ho_ten, ngay_sinh, so_CMTND, sdt, email, dia_chi)
-VALUES (5, 'Minh', '2000-10-06', 201562744, 0843670087, 'minh@gmail.com', 'Đà Nẵng'),
+VALUES (5, 'Minh', '2020-10-06', 201562744, 0843670087, 'minh@gmail.com', 'Đà Nẵng'),
 		(1, 'Danh', '1997-08-22', 201684297, 0394581627, 'danh@gmail.com', 'Huế'),
-		(3, 'Toan', '1994-11-11', 201251983, 0871555364, 'toan@gmail.com', 'Vinh'),
-		(2, 'Uyen', '1996-01-28', 201523799, 0177646469, 'uyen@gmail.com', 'Quảng Trị'),
-		(4, 'Hien', '1997-07-17', 201588114, 0111346999, 'hien@gmail.com', 'Đà Nẵng');
+		(3, 'Toàn', '1994-11-11', 201251983, 0871555364, 'toan@gmail.com', 'Vinh'),
+		(2, 'Uyên', '1996-01-28', 201523799, 0177646469, 'uyen@gmail.com', 'Quảng Trị'),
+		(4, 'Hiền', '1997-07-17', 201588114, 0111346999, 'hien@gmail.com', 'Đà Nẵng');
         
+INSERT INTO loai_dich_vu(ten_loai_dich_vu)
+VALUES ('Villa'),
+		('House'),
+        ('Room');
+
+INSERT INTO kieu_thue(ten_kieu_thue)
+VALUES ('Năm'),
+		('Tháng'),
+        ('Ngày'),
+        ('Giờ');
         
+INSERT INTO dich_vu(ten_dich_vu, dien_tich, so_tang, so_nguoi_toi_da, chi_phi_thue, id_kieu_thue, id_loai_dich_vu, trang_thai)
+VALUES ('Ocean Villa', 100, 3, 10, 5000000, 2, 1, 'Khả dụng'),
+		('Sand Room', 25, NULL, 2, 600000, 3, 3, 'Khả dụng'),
+        ('Wind House', 70, 2, 5, 3000000, 3, 2, 'Khả dụng');
+
+INSERT INTO dich_vu_di_kem(ten_dich_vu_di_kem, gia, don_vi, trang_thai_kha_dung)
+VALUES ('Massage', 100000, 'Lượt', 'Khả dụng'),
+		('Karaoke', 250000, 'Giờ', 'Khả dụng'),
+        ('Thức ăn', 50000, 'Dĩa', 'Khả dụng'),
+        ('Nước uống', 10000, 'Chai', 'Khả dụng'),
+        ('Thuê xe tham quan resort', 150000, 'Xe', 'Khả dụng');
         
+INSERT INTO hop_dong(id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc)
+VALUES (2, 2, 3, '2021-07-14', '2021-08-11', 50000),
+		(3, 1, 1, '2021-06-29', '2021-12-19', 70000),
+		(4, 3, 2, '2021-03-17', '2021-10-16', 90000);
         
-        
-        
-        
+INSERT INTO hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong)
+VALUES (1, 3, 5),
+		(2, 1, 2),
+        (3, 5, 3);
+
         
         
         
