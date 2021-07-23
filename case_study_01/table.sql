@@ -147,7 +147,8 @@ VALUES (5, 'Minh', '2020-10-06', 201562744, 0843670087, 'minh@gmail.com', 'Đà 
 		(1, 'Danh', '1997-08-22', 201684297, 0394581627, 'danh@gmail.com', 'Huế'),
 		(3, 'Toàn', '1994-11-11', 201251983, 0871555364, 'toan@gmail.com', 'Vinh'),
 		(2, 'Uyên', '1996-01-28', 201523799, 0177646469, 'uyen@gmail.com', 'Quảng Trị'),
-		(4, 'Hiền', '1997-07-17', 201588114, 0111346999, 'hien@gmail.com', 'Đà Nẵng');
+		(4, 'Hiền', '1997-07-17', 201588114, 0111346999, 'hien@gmail.com', 'Đà Nẵng'),
+		(1, 'Tiến', '1993-09-17', 201599988, 0111312999, 'tien@gmail.com', 'Đà Nẵng');
         
 INSERT INTO loai_dich_vu(ten_loai_dich_vu)
 VALUES ('Villa'),
@@ -174,13 +175,16 @@ VALUES ('Massage', 100000, 'Lượt', 'Khả dụng'),
         
 INSERT INTO hop_dong(id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc)
 VALUES (2, 2, 3, '2021-07-14', '2021-08-11', 50000),
+		(1, 2, 1, '2021-01-24', '2021-09-02', 50000),
+		(4, 6, 1, '2021-04-30', '2021-09-02', 50000),
 		(3, 1, 1, '2021-06-29', '2021-12-19', 70000),
 		(4, 3, 2, '2021-03-17', '2021-10-16', 90000);
         
 INSERT INTO hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong)
 VALUES (1, 3, 5),
 		(2, 1, 2),
-        (3, 5, 3);
+        (3, 5, 3),
+        (5, 4, 2);
 
         
         
