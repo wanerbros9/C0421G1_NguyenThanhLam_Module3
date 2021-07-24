@@ -97,4 +97,10 @@ FROM khach_hang;
 -- nghĩa là tương ứng với mỗi tháng trong năm 2019 
 -- thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 
+SELECT kh.id_khach_hang,kh.ho_ten,hd.ngay_lam_hop_dong,month(hd.ngay_lam_hop_dong) as `Month`
+FROM khach_hang kh
+INNER JOIN hop_dong hd on kh.id_khach_hang = hd.id_khach_hang
+WHERE year(hd.ngay_lam_hop_dong) = 2019
+GROUP BY month(hd.ngay_lam_hop_dong);
+
 

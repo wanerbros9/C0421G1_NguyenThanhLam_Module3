@@ -176,8 +176,8 @@ VALUES ('Massage', 100000, 'Lượt', 'Khả dụng'),
 INSERT INTO hop_dong(id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc)
 VALUES (2, 2, 3, '2021-07-14', '2021-08-11', 50000),
 		(1, 2, 1, '2021-01-24', '2021-09-02', 50000),
-		(4, 6, 1, '2021-04-30', '2021-09-02', 50000),
-		(3, 1, 1, '2021-06-29', '2021-12-19', 70000),
+		(4, 6, 1, '2019-04-30', '2019-09-02', 50000),
+		(3, 1, 1, '2018-06-29', '2018-12-19', 70000),
 		(4, 3, 2, '2021-03-17', '2021-10-16', 90000);
         
 INSERT INTO hop_dong_chi_tiet(id_hop_dong, id_dich_vu_di_kem, so_luong)
