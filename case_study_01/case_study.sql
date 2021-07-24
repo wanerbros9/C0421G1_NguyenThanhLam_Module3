@@ -1,5 +1,6 @@
 -- 2. Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là
 -- một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 ký tự.
+
 USE furama_resort;
 
 SELECT * FROM nhan_vien
@@ -48,6 +49,7 @@ ORDER BY tong_cong;
 -- 6. Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue,
 -- TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng
 -- thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
+
 SELECT kh.ho_ten,dv.id_dich_vu,dv.ten_dich_vu,dv.dien_tich,dv.chi_phi_thue,ldv.ten_loai_dich_vu,hd.ngay_lam_hop_dong
 FROM dich_vu dv
 LEFT JOIN hop_dong hd ON dv.id_dich_vu = hd.id_dich_vu
@@ -62,6 +64,7 @@ WHERE (year(hd.ngay_lam_hop_dong) = '2019' and month(hd.ngay_lam_hop_dong) IN (1
 -- 7. Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue,
 -- TenLoaiDichVu của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng 
 -- trong năm 2018 nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019.
+
 SELECT kh.ho_ten,dv.id_dich_vu,dv.ten_dich_vu,dv.dien_tich,dv.so_nguoi_toi_da,dv.chi_phi_thue,ldv.ten_loai_dich_vu,hd.ngay_lam_hop_dong
 FROM dich_vu dv
 LEFT JOIN hop_dong hd ON dv.id_dich_vu = hd.id_dich_vu
@@ -80,6 +83,7 @@ WHERE year(ngay_lam_hop_dong) = '2018'
 -- 8. Hiển thị thông tin HoTenKhachHang có trong hệ thống,
 -- với yêu cầu HoThenKhachHang không trùng nhau.
 -- Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên
+
 SELECT ho_ten
 FROM khach_hang
 GROUP BY ho_ten;
@@ -103,4 +107,16 @@ INNER JOIN hop_dong hd on kh.id_khach_hang = hd.id_khach_hang
 WHERE year(hd.ngay_lam_hop_dong) = 2019
 GROUP BY month(hd.ngay_lam_hop_dong);
 
+-- 10. Hiển thị thông tin tương ứng với từng Hợp đồng thì đã sử dụng bao nhiêu
+-- Dịch vụ đi kèm. Kết quả hiển thị bao gồm IDHopDong,
+-- NgayLamHopDong, NgayKetthuc, TienDatCoc,
+-- SoLuongDichVuDiKem (được tính dựa trên việc count các
+-- IDHopDongChiTiet).
+
+SELECT hd.id_hop_dong, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, hd.tien_dat_coc, COUNT(hdct.id_dich_vu_di_kem) AS 'so_luong'
+FROM hop_dong_chi_tiet hdct
+JOIN dich_vu_di_kem dvdk ON hdct.id_dich_vu_di_kem = dvdk.id_dich_vu_di_kem
+JOIN hop_dong hd ON hd.id_hop_dong = hdct.id_hop_dong
+GROUP BY ten_dich_vu_di_kem
+ORDER BY 'so luong';
 
