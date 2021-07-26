@@ -118,9 +118,17 @@ HAVING dem > 10
 UPDATE dich_vu_di_kem
 SET gia = gia*2
 WHERE id_dich_vu_di_kem
-IN (SELECT gia FROM temp);
+IN (SELECT id_dich_vu_di_kem FROM temp);
 DROP TEMPORARY TABLE temp;
 
+-- 20. Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ
+-- thống, thông tin hiển thị bao gồm ID (IDNhanVien, IDKhachHang),
+-- HoTen, Email, SoDienThoai, NgaySinh, DiaChi.
+SELECT nv.id_nhan_vien, nv.ten_nhan_vien, nv.email, nv.sdt, nv.ngay_sinh, nv.dia_chi
+FROM nhan_vien nv
+UNION ALL
+SELECT kh.id_khach_hang, kh.ho_ten, kh.email, kh.sdt, kh.ngay_sinh, kh.dia_chi
+FROM khach_hang kh;
 
 
 
