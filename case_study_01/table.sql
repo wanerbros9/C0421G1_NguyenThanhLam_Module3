@@ -31,9 +31,15 @@ CREATE TABLE nhan_vien(
     sdt VARCHAR(45),
     email VARCHAR(45),
     dia_chi VARCHAR(45),
-    FOREIGN KEY (id_vi_tri) REFERENCES vi_tri(id_vi_tri), 
-    FOREIGN KEY (id_trinh_do) REFERENCES trinh_do(id_trinh_do), 
+    FOREIGN KEY (id_vi_tri) REFERENCES vi_tri(id_vi_tri)
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE,
+    FOREIGN KEY (id_trinh_do) REFERENCES trinh_do(id_trinh_do)
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE,
     FOREIGN KEY (id_bo_phan) REFERENCES bo_phan(id_bo_phan) 
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE
 );
 
 CREATE TABLE loai_khach(
@@ -51,6 +57,8 @@ CREATE TABLE khach_hang(
     email VARCHAR(45),
     dia_chi VARCHAR(45),
     FOREIGN KEY (id_loai_khach) REFERENCES loai_khach(id_loai_khach)
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE
 );
 
 CREATE TABLE kieu_thue(
@@ -74,8 +82,12 @@ CREATE TABLE dich_vu(
     id_kieu_thue INT,
     id_loai_dich_vu INT,
     trang_thai VARCHAR(45),
-    FOREIGN KEY (id_kieu_thue) REFERENCES kieu_thue(id_kieu_thue),
+    FOREIGN KEY (id_kieu_thue) REFERENCES kieu_thue(id_kieu_thue)
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE,
     FOREIGN KEY (id_loai_dich_vu) REFERENCES loai_dich_vu(id_loai_dich_vu)
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE
 );
 
 CREATE TABLE hop_dong(
@@ -87,9 +99,15 @@ CREATE TABLE hop_dong(
     ngay_ket_thuc DATE,
     tien_dat_coc INT,
     tong_tien INT,
-    FOREIGN KEY (id_nhan_vien) REFERENCES nhan_vien(id_nhan_vien),
-    FOREIGN KEY (id_khach_hang) REFERENCES khach_hang(id_khach_hang),
+    FOREIGN KEY (id_nhan_vien) REFERENCES nhan_vien(id_nhan_vien)nhan_vien
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE,
+    FOREIGN KEY (id_khach_hang) REFERENCES khach_hang(id_khach_hang)
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE,
     FOREIGN KEY (id_dich_vu) REFERENCES dich_vu(id_dich_vu)
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE
 );
 
 CREATE TABLE dich_vu_di_kem(
@@ -105,8 +123,12 @@ CREATE TABLE hop_dong_chi_tiet(
     id_hop_dong INT,
     id_dich_vu_di_kem INT,
     so_luong INT,
-    FOREIGN KEY (id_hop_dong) REFERENCES hop_dong(id_hop_dong),
+    FOREIGN KEY (id_hop_dong) REFERENCES hop_dong(id_hop_dong)
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE,
     FOREIGN KEY (id_dich_vu_di_kem) REFERENCES dich_vu_di_kem(id_dich_vu_di_kem)
+    ON DELETE CASCADE 
+	ON UPDATE CASCADE
 );
 
 INSERT INTO vi_tri(ten_vi_tri)
