@@ -99,7 +99,7 @@ CREATE TABLE hop_dong(
     ngay_ket_thuc DATE,
     tien_dat_coc INT,
     tong_tien INT,
-    FOREIGN KEY (id_nhan_vien) REFERENCES nhan_vien(id_nhan_vien)nhan_vien
+    FOREIGN KEY (id_nhan_vien) REFERENCES nhan_vien(id_nhan_vien)
     ON DELETE CASCADE 
 	ON UPDATE CASCADE,
     FOREIGN KEY (id_khach_hang) REFERENCES khach_hang(id_khach_hang)
