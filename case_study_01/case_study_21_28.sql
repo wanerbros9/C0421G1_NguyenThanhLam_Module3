@@ -47,16 +47,16 @@ ngay_lam_hop_dong_a DATE,
 ngay_ket_thuc_a DATE,
 tien_dat_coc_a INT 
 )
-begin
-if (id_nhan_vien_a in (select id_nhan_vien from nhan_vien) AND 
+BEGIN
+IF (id_nhan_vien_a in (select id_nhan_vien from nhan_vien) AND 
 	id_khach_hang_a in (SELECT id_khach_hang FROM khach_hang)AND 
     id_dich_vu_a IN (SELECT id_dich_vu FROM dich_vu)) THEN 
     INSERT INTO hop_dong(id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc)
     VALUES (id_nhan_vien_a, id_khach_hang_a, id_dich_vu_a, ngay_lam_hop_dong_a, ngay_ket_thuc_a, tien_dat_coc_a);
-    else 
-    select 'sai r';
-    end if;
-end;
+    ELSE 
+    SELECT 'Wrong';
+    END IF;
+END;
 // DELIMITER ;
 
 CALL sp_2(1, 1, 1, '2021-07-14', '2021-08-11', 50000);
