@@ -25,6 +25,12 @@
     clear: both;
     display: block;;
 }
+
+@media only screen and (max-width: 768px){
+    [class*="col-"]{
+        width: 100%;
+    }
+}
 .header{
     color: white;
     font-size: 40px;
