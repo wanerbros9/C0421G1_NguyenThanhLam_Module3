@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ProductServlet", urlPatterns = {"","/products"})
+@WebServlet(name = "ProductServlet", urlPatterns = {"", "/products"})
 public class ProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,8 +34,35 @@ public class ProductServlet extends HttpServlet {
             case "view":
                 viewProduct(request, response);
                 break;
+            case "search":
+
+                break;
             default:
                 listProduct(request, response);
+                break;
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "create":
+                createProduct(request, response);
+                break;
+            case "edit":
+                updateProduct(request, response);
+                break;
+            case "delete":
+                deleteProduct(request, response);
+                break;
+            case "search":
+                searchProduct(request, response);
+                break;
+            default:
                 break;
         }
     }
@@ -124,26 +151,6 @@ public class ProductServlet extends HttpServlet {
 
     private final IProductService iProductService = new ProductService();
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "";
-        }
-        switch (action) {
-            case "create":
-                createProduct(request, response);
-                break;
-            case "edit":
-                updateProduct(request, response);
-                break;
-            case "delete":
-                deleteProduct(request, response);
-                break;
-            default:
-                break;
-        }
-    }
 
     private void createProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
@@ -177,6 +184,23 @@ public class ProductServlet extends HttpServlet {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        List<Product> product = this.iProductService.search(name);
+        RequestDispatcher dispatcher;
+        if (product == null) {
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        } else {
+            request.setAttribute("products", product);
+            dispatcher = request.getRequestDispatcher("product/search.jsp");
+        }
+        try {
+            dispatcher.forward(request, response);
+        } catch (IOException | ServletException e) {
+            e.printStackTrace();
         }
     }
 

@@ -14,16 +14,20 @@
         <legend>Product Information</legend>
         <table>
             <tr>
+                <td>ID: </td>
+                <td>${product.getId()}</td>
+            </tr>
+            <tr>
                 <td>Name: </td>
-                <td>${requestScope["product"].getName()}</td>
+                <td>${product.getName()}</td>
             </tr>
             <tr>
                 <td>Product Name: </td>
-                <td>${requestScope["product"].getProductName}</td>
+                <td>${product.getProductName()}</td>
             </tr>
             <tr>
                 <td>Price: </td>
-                <td>${requestScope["product"].getPrice}</td>
+                <td>${product.getPrice()}</td>
             </tr>
             <tr>
                 <td><input type="submit" value="Delete product"></td>

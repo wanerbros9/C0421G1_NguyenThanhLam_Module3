@@ -7,8 +7,8 @@
 <body>
 <h1>Edit Product</h1>
 <p>
-    <c:if test='${requestScope["message"]!= null}'>
-        <span class="message">${requestScope["message"]}</span>
+    <c:if test='${message!= null}'>
+        <span class="message">${message}</span>
     </c:if>
 </p>
 <p>
@@ -19,17 +19,17 @@
         <legend>Product Information</legend>
         <table>
             <tr>
-                <td>Name:</td>
-                <td><input type="text" name="name" id="name" value='${requestScope["product"].getName()}'></td>
+                <td>Name: </td>
+                <td><input type="text" name="name" id="name" value='${product.getName()}'></td>
             </tr>
             <tr>
                 <td>Product Name:</td>
                 <td><input type="text" name="productName" id="productName"
-                           value='${requestScope["product"].getProductName()}'></td>
+                           value='${product.getProductName()}'></td>
             </tr>
             <tr>
                 <td>Price:</td>
-                <td><input type="text" name="price" id="price" value='${requestScope["product"].getPrice}'></td>
+                <td><input type="text" name="price" id="price" value='${product.getPrice()}'></td>
             </tr>
             <tr>
                 <td></td>
