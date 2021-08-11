@@ -48,7 +48,7 @@ CREATE TABLE employee(
     division_id INT,
     employee_birthday DATE,
     employee_id_card VARCHAR(45),
-    employee_salary VARCHAR(45),
+    employee_salary DOUBLE,
     employee_phone VARCHAR(45),
     employee_email VARCHAR(45),
     employee_address VARCHAR(45),

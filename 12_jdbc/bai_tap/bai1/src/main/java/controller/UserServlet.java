@@ -4,7 +4,6 @@ import model.bean.User;
 import model.service.IUserService;
 import model.service.iplm.UserService;
 
-import javax.jws.soap.SOAPBinding;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,23 +34,10 @@ public class UserServlet extends HttpServlet {
             case "delete":
                 deleteUser(request, response);
             case "findByCountry":
-                searchByCountry(request,response);
+                searchByCountry(request, response);
                 break;
             case "orderBy":
                 break;
-        }
-    }
-
-    private void searchByCountry(HttpServletRequest request, HttpServletResponse response) {
-        String country = request.getParameter("country");
-        List<User> searchByCountry = this.iUserService.findByCountry(country);
-        request.setAttribute("userListServlet",searchByCountry);
-        try {
-            request.getRequestDispatcher("user/list.jsp").forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -74,18 +60,32 @@ public class UserServlet extends HttpServlet {
                 showDeleteUser(request, response);
                 break;
             case "orderBy":
-                showOrderByName(request,response);
+                showOrderByName(request, response);
                 break;
             default:
                 showList(request, response);
         }
     }
 
+    private void searchByCountry(HttpServletRequest request, HttpServletResponse response) {
+        String country = request.getParameter("country");
+        List<User> searchByCountry = this.iUserService.findByCountry(country);
+        request.setAttribute("userListServlet", searchByCountry);
+        try {
+            request.getRequestDispatcher("user/list.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private void showOrderByName(HttpServletRequest request, HttpServletResponse response) {
         List<User> userList = iUserService.sortByName();
-        request.setAttribute("userListServlet",userList);
+        request.setAttribute("userListServlet", userList);
         try {
-            request.getRequestDispatcher("user/list.jsp").forward(request,response);
+            request.getRequestDispatcher("user/list.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -119,7 +119,7 @@ public class UserServlet extends HttpServlet {
 
     private void showCreateUser(HttpServletRequest request, HttpServletResponse response) {
         try {
-            request.getRequestDispatcher("user/create.jsp").forward(request,response);
+            request.getRequestDispatcher("user/create.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -179,10 +179,10 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String country = request.getParameter("country");
 
-        User user = new User(name,email,country);
+        User user = new User(name, email, country);
         this.iUserService.create(user);
         try {
-            request.getRequestDispatcher("user/create.jsp").forward(request,response);
+            request.getRequestDispatcher("user/create.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
