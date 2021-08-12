@@ -1,6 +1,7 @@
-package model.repository;
+package model.repository.employee_repository;
 
-import model.bean.Employee;
+import model.bean.employee.Employee;
+import model.repository.BaseRepository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -67,7 +68,7 @@ public class EmployeeRepository implements IEmployeeRepository {
             preparedStatement.setString(8, employee.getEmployeePhone());
             preparedStatement.setString(9, employee.getEmployeeEmail());
             preparedStatement.setString(10, employee.getEmployeeAddress());
-            preparedStatement.setInt(11,employee.getEmployeeId());
+            preparedStatement.setInt(11, employee.getEmployeeId());
 
             row = preparedStatement.executeUpdate();
 
@@ -78,7 +79,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public Employee findByID(int employee_id) {
+    public Employee findByID(int employeeId) {
         Employee employee = null;
         try {
             PreparedStatement preparedStatement =
@@ -88,12 +89,12 @@ public class EmployeeRepository implements IEmployeeRepository {
                                     "       employee_phone,employee_email,employee_address\n" +
                                     "from employee\n" +
                                     "where employee_id = ?");
-            preparedStatement.setString(1, employee_id + "");
+            preparedStatement.setString(1, employeeId + "");
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
                 employee = new Employee();
-                employee.setEmployeeId(employee_id);
+                employee.setEmployeeId(employeeId);
                 employee.setEmployeeName(resultSet.getString("employee_name"));
                 employee.setPositionId(resultSet.getInt("position_id"));
                 employee.setEducationDegreeId(resultSet.getInt("education_degree_id"));
@@ -113,11 +114,47 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public void remove(int id) {
+        int row = 0;
 
+        try {
+            PreparedStatement preparedStatement =
+                    this.baseRepository.getConnection().prepareStatement(
+                            "delete from employee\n" +
+                                    "where employee_id = ?");
+            preparedStatement.setString(1, id + "");
+            row = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public boolean create(Employee user) {
+    public boolean create(Employee employee) {
+        int row = 0;
+        try {
+            PreparedStatement preparedStatement =
+                    this.baseRepository.getConnection().prepareStatement(
+                            "insert into employee (employee_name, position_id, education_degree_id, division_id, employee_birthday,\n" +
+                                    "                      employee_id_card,\n" +
+                                    "                      employee_salary, employee_phone, employee_email, employee_address)\n" +
+                                    "    value (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, employee.getEmployeeName());
+            preparedStatement.setString(2, employee.getPositionId() + "");
+            preparedStatement.setString(3, employee.getEducationDegreeId() + "");
+            preparedStatement.setString(4, employee.getDivisionId() + "");
+            preparedStatement.setString(5, employee.getEmployeeBirthday());
+            preparedStatement.setString(6, employee.getEmployeeIdCard());
+            preparedStatement.setString(7, employee.getEmployeeSalary() + "");
+            preparedStatement.setString(8, employee.getEmployeePhone());
+            preparedStatement.setString(9, employee.getEmployeeEmail());
+            preparedStatement.setString(10, employee.getEmployeeAddress());
+            row = preparedStatement.executeUpdate();
+            if (row > 0){
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 }

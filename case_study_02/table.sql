@@ -89,8 +89,7 @@ CREATE TABLE customer(
 
 CREATE TABLE rent_type(
 	rent_type_id INT PRIMARY KEY AUTO_INCREMENT,
-    rent_type_name VARCHAR(45),
-    rent_type_cost INT
+    rent_type_name VARCHAR(45)
 );
 
 CREATE TABLE service_type(
@@ -102,12 +101,12 @@ CREATE TABLE service(
 	service_id INT PRIMARY KEY AUTO_INCREMENT,
     service_name VARCHAR(45),
     service_area INT,
-    service_cost VARCHAR(45),-- chi phi thue
+    service_cost DOUBLE,-- chi phi thue
     service_max_people VARCHAR(45),
     rent_type_id INT,
     service_type_id INT,
     standard_room VARCHAR(45),
-    description_other_convinience VARCHAR(45),
+    description_other_convenience VARCHAR(45),
     pool_area INT,
     number_of_floors INT,
     FOREIGN KEY (rent_type_id) REFERENCES rent_type(rent_type_id)
@@ -192,26 +191,26 @@ VALUES ('Diamond'),
         ('Silver'),
         ('Member');
 
-INSERT INTO customer(customer_type_id, customer_name, customer_birthday, customer_id_card, customer_phone, customer_email, customer_address)
-VALUES (5, 'Minh', '2020-10-06', 201562744, 0843670087, 'minh@gmail.com', 'Đà Nẵng'),
-		(1, 'Danh', '1997-08-22', 201684297, 0394581627, 'danh@gmail.com', 'Huế'),
-		(1, 'Toàn', '1994-11-11', 201251983, 0871555364, 'toan@gmail.com', 'Vinh'),
-		(2, 'Uyên', '1996-01-28', 201523799, 0177646469, 'uyen@gmail.com', 'Quảng Trị'),
-		(4, 'Hiền', '1997-07-17', 201588114, 0111346999, 'hien@gmail.com', 'Đà Nẵng'),
-		(1, 'Tiến', '1993-09-17', 201599988, 0111312999, 'tien@gmail.com', 'Đà Nẵng');
+INSERT INTO customer(customer_type_id, customer_name, customer_birthday, customer_gender, customer_id_card, customer_phone, customer_email, customer_address)
+VALUES (5, 'Minh', '2020-10-06', 1, 201562744, 0843670087, 'minh@gmail.com', 'Đà Nẵng'),
+		(1, 'Danh', '1997-08-22', 1, 201684297, 0394581627, 'danh@gmail.com', 'Huế'),
+		(1, 'Toàn', '1994-11-11', 1, 201251983, 0871555364, 'toan@gmail.com', 'Vinh'),
+		(2, 'Uyên', '1996-01-28', 0, 201523799, 0177646469, 'uyen@gmail.com', 'Quảng Trị'),
+		(4, 'Hiền', '1997-07-17', 0, 201588114, 0111346999, 'hien@gmail.com', 'Đà Nẵng'),
+		(1, 'Tiến', '1993-09-17', 1, 201599988, 0111312999, 'tien@gmail.com', 'Đà Nẵng');
         
 INSERT INTO service_type(service_type_name)
 VALUES ('Villa'),
 		('House'),
         ('Room');
 
-INSERT INTO rent_type(rent_type_name, rent_type_cost)
-VALUES ('Năm',50000),
-		('Tháng',30000),
-        ('Ngày',10000),
-        ('Giờ',5000);
+INSERT INTO rent_type(rent_type_name)
+VALUES ('Năm'),
+		('Tháng'),
+        ('Ngày'),
+        ('Giờ');
         
-INSERT INTO service(service_name, service_area,service_cost, service_max_people, rent_type_id, service_type_id, standard_room, description_other_convinience, pool_area, number_of_floors)
+INSERT INTO service(service_name, service_area,service_cost, service_max_people, rent_type_id, service_type_id, standard_room, description_other_convenience, pool_area, number_of_floors)
 VALUES ('Ocean Villa', 100, 5000000, 10, 2, 1, 'VVIP', 'Mạng riêng tư', 40, 3),
 		('Sand Room', 30, 60000, 2, 1, 3,NULL, 'Nước miễn phí', NULL, NULL),
         ('Wind House', 80, 3000000, 4, 3, 2, 'FAMILY', 'Giường nhỏ', NULL, 2);

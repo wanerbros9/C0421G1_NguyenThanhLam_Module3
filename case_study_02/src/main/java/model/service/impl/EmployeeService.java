@@ -1,8 +1,8 @@
 package model.service.impl;
 
-import model.bean.Employee;
-import model.repository.EmployeeRepository;
-import model.repository.IEmployeeRepository;
+import model.bean.employee.Employee;
+import model.repository.employee_repository.EmployeeRepository;
+import model.repository.employee_repository.IEmployeeRepository;
 import model.service.IEmployeeService;
 
 import java.util.List;
@@ -23,17 +23,17 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public Employee findByID(int employee_id) {
-        return iEmployeeRepository.findByID(employee_id);
+    public Employee findByID(int employeeId) {
+        return iEmployeeRepository.findByID(employeeId);
     }
 
     @Override
     public void remove(int id) {
-
+        this.iEmployeeRepository.remove(id);
     }
 
     @Override
     public boolean create(Employee employee) {
-        return false;
+        return this.iEmployeeRepository.create(employee);
     }
 }

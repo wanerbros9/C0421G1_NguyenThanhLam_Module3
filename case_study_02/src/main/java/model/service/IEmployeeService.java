@@ -1,6 +1,6 @@
 package model.service;
 
-import model.bean.Employee;
+import model.bean.employee.Employee;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public interface IEmployeeService {
 
     String edit(Employee employee);
 
-    Employee findByID(int employee_id);
+    Employee findByID(int employeeId);
 
     void remove(int id);
 

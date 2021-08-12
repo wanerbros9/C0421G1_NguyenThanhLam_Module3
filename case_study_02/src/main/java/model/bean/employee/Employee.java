@@ -1,4 +1,4 @@
-package model.bean;
+package model.bean.employee;
 
 public class Employee {
     private int employeeId;

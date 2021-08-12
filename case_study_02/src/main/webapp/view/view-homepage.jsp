@@ -27,19 +27,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
                     <a class="nav-link" href="/employee">Employee</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link" href="customer/view-customer.jsp">Customer</a>
+                    <a class="nav-link" href="/customer">Customer</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link" href="service/view-service.jsp">Service</a>
+                    <a class="nav-link" href="/service">Service</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link" href="contract/view-contract.jsp">Contract</a>
+                    <a class="nav-link" href="/contract">Contract</a>
                 </li>
             </ul>
             <form class="d-flex">

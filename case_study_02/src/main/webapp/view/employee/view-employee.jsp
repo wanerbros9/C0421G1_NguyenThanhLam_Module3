@@ -34,13 +34,13 @@
                     <a class="nav-link" href="/employee">Employee</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link" href="view-customer.jsp">Customer</a>
+                    <a class="nav-link" href="/customer">Customer</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link" href="view-service.jsp">Service</a>
+                    <a class="nav-link" href="/service">Service</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link" href="view-contract.jsp">Contract</a>
+                    <a class="nav-link" href="/contract">Contract</a>
                 </li>
             </ul>
             <form class="d-flex">
@@ -50,27 +50,31 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid" align="left" style="padding-top: 10px">
+<div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <table border="1" cellpadding="5">
+            <table class="table table-striped">
                 <h2>List of employee</h2>
-                <tr>
-                    <th>Employee id</th>
-                    <th>Employee Name</th>
-                    <th>Position id</th>
-                    <th>Education degree id</th>
-                    <th>Division id</th>
-                    <th>Employee birthday</th>
-                    <th>Employee id card</th>
-                    <th>Employee salary</th>
-                    <th>Employee phone</th>
-                    <th>Employee email</th>
-                    <th>Employee address</th>
+                <thead>
+                <tr style="text-align: center">
+                    <th scope="col">Employee id</th>
+                    <th scope="col">Employee Name</th>
+                    <th scope="col">Position id</th>
+                    <th scope="col">Education degree id</th>
+                    <th scope="col">Division id</th>
+                    <th scope="col">Employee birthday</th>
+                    <th scope="col">Employee id card</th>
+                    <th scope="col">Employee salary</th>
+                    <th scope="col">Employee phone</th>
+                    <th scope="col">Employee email</th>
+                    <th scope="col">Employee address</th>
+                    <th scope="col"></th>
                 </tr>
+                </thead>
+                <tbody>
                 <c:forEach var="employee" items="${employeeListServlet}">
                     <tr>
-                        <td style="text-align: center"><c:out value="${employee.getEmployeeId()}"/></td>
+                        <th scope="row" style="text-align: center"><c:out value="${employee.getEmployeeId()}"/></th>
                         <td style="text-align: center"><c:out value="${employee.getEmployeeName()}"/></td>
                         <td style="text-align: center"><c:out value="${employee.getPositionId()}"/></td>
                         <td style="text-align: center"><c:out value="${employee.getEducationDegreeId()}"/></td>
@@ -84,14 +88,51 @@
                         <td>
                             <a class="btn btn-warning" href="/employee?action=edit&id=${employee.getEmployeeId()}"
                                role="button">Edit</a>
-<%--                            <a class="btn btn-danger" href="/employee?action=delete?id${employee.getEmployeeID()}"--%>
-<%--                               role="button">Delete</a>--%>
+                            <!-- Vertically centered modal -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" onclick="deleteById(${employee.getEmployeeId()})">
+                                Delete
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Delete Employee</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Do you want to delete ?
+                                        </div>
+                                        <form method="post">
+                                            <div class="modal-footer">
+                                                <input type="hidden" name="id" id="employeeId">
+                                                <input type="hidden" name="action" value="delete">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="submit" class="btn btn-danger">Yes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 </c:forEach>
+                </tbody>
             </table>
         </div>
     </div>
+</div>
+<div class="container-fluid">
+    <center>
+        <a class="btn btn-success" href="/employee?action=create" role="button">Add New Employee</a>
+    </center>
 </div>
 <div class="container-fluid">
     <div class="row" style="text-align: center; border: 1px solid black; margin-top: 5px">
@@ -109,6 +150,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
+<script>
+    function deleteById(id) {
+        document.getElementById("employeeId").value = id;
+    }
+</script>
 </body>
 </html>

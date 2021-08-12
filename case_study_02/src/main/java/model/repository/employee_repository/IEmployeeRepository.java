@@ -1,6 +1,6 @@
-package model.repository;
+package model.repository.employee_repository;
 
-import model.bean.Employee;
+import model.bean.employee.Employee;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ public interface IEmployeeRepository {
 
     String edit(Employee employee);
 
-    Employee findByID(int employee_id);
+    Employee findByID(int employeeId);
 
     void remove(int id);
 
-    boolean create(Employee user);
+    boolean create(Employee employee);
 }

@@ -34,13 +34,13 @@
                     <a class="nav-link" href="/employee">Employee</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link" href="view-customer.jsp">Customer</a>
+                    <a class="nav-link" href="/customer">Customer</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link" href="view-service.jsp">Service</a>
+                    <a class="nav-link" href="/service">Service</a>
                 </li>
                 <li class="nav-item" style="margin-right: 30px">
-                    <a class="nav-link" href="view-contract.jsp">Contract</a>
+                    <a class="nav-link" href="/contract">Contract</a>
                 </li>
             </ul>
             <form class="d-flex">
@@ -56,55 +56,55 @@
             <form method="post">
                 <legend align="center">Edit Employee</legend>
                 <input type="hidden" name="action" value="update">
-                <input type="hidden" name="employee_id" value="${employeeObj.getEmployeeId()}">
+                <input type="hidden" name="employeeId" value="${employeeObj.getEmployeeId()}">
                 <div class="mb-3">
-                    <label for="employee_name" class="form-label">Employee Name</label>
-                    <input type="text" name="employee_name" class="form-control" id="employee_name"
+                    <label for="employeeName" class="form-label">Employee Name</label>
+                    <input type="text" name="employeeName" class="form-control" id="employeeName"
                            value="${employeeObj.getEmployeeName()}">
                 </div>
                 <div class="mb-3">
-                    <label for="position_id" class="form-label">Position Id</label>
-                    <input type="text" name="position_id" class="form-control" id="position_id"
+                    <label for="positionId" class="form-label">Position Id</label>
+                    <input type="text" name="positionId" class="form-control" id="positionId"
                            value="${employeeObj.getPositionId()}">
                 </div>
                 <div class="mb-3">
-                    <label for="education_degree_id" class="form-label">Education Degree Id Name</label>
-                    <input type="text" name="education_degree_id" class="form-control" id="education_degree_id"
+                    <label for="educationDegreeId" class="form-label">Education Degree Id Name</label>
+                    <input type="text" name="educationDegreeId" class="form-control" id="educationDegreeId"
                            value="${employeeObj.getEducationDegreeId()}">
                 </div>
                 <div class="mb-3">
-                    <label for="division_id" class="form-label">Division Id</label>
-                    <input type="text" name="division_id" class="form-control" id="division_id"
+                    <label for="divisionId" class="form-label">Division Id</label>
+                    <input type="text" name="divisionId" class="form-control" id="divisionId"
                            value="${employeeObj.getDivisionId()}">
                 </div>
                 <div class="mb-3">
-                    <label for="employee_birthday" class="form-label">Employee Birthday</label>
-                    <input type="text" name="employee_birthday" class="form-control" id="employee_birthday"
+                    <label for="employeeBirthday" class="form-label">Employee Birthday</label>
+                    <input type="text" name="employeeBirthday" class="form-control" id="employeeBirthday"
                            value="${employeeObj.getEmployeeBirthday()}">
                 </div>
                 <div class="mb-3">
-                    <label for="employee_id_card" class="form-label">Employee Id Card</label>
-                    <input type="text" name="employee_id_card" class="form-control" id="employee_id_card"
+                    <label for="employeeIdCard" class="form-label">Employee Id Card</label>
+                    <input type="text" name="employeeIdCard" class="form-control" id="employeeIdCard"
                            value="${employeeObj.getEmployeeIdCard()}">
                 </div>
                 <div class="mb-3">
-                    <label for="employee_salary" class="form-label">Employee Salary</label>
-                    <input type="text" name="employee_salary" class="form-control" id="employee_salary"
+                    <label for="employeeSalary" class="form-label">Employee Salary</label>
+                    <input type="text" name="employeeSalary" class="form-control" id="employeeSalary"
                            value="${employeeObj.getEmployeeSalary()}">
                 </div>
                 <div class="mb-3">
-                    <label for="employee_phone" class="form-label">Employee Phone</label>
-                    <input type="text" name="employee_phone" class="form-control" id="employee_phone"
+                    <label for="employeePhone" class="form-label">Employee Phone</label>
+                    <input type="text" name="employeePhone" class="form-control" id="employeePhone"
                            value="${employeeObj.getEmployeePhone()}">
                 </div>
                 <div class="mb-3">
-                    <label for="employee_email" class="form-label">Employee Email</label>
-                    <input type="text" name="employee_email" class="form-control" id="employee_email"
+                    <label for="employeeEmail" class="form-label">Employee Email</label>
+                    <input type="email" name="employeeEmail" class="form-control" id="employeeEmail"
                            value="${employeeObj.getEmployeeEmail()}">
                 </div>
                 <div class="mb-3">
-                    <label for="employee_address" class="form-label">Employee Address</label>
-                    <input type="text" name="employee_address" class="form-control" id="employee_address"
+                    <label for="employeeAddress" class="form-label">Employee Address</label>
+                    <input type="text" name="employeeAddress" class="form-control" id="employeeAddress"
                            value="${employeeObj.getEmployeeAddress()}">
                 </div>
                 <button type="submit" class="btn btn-primary">Update Employee</button>
