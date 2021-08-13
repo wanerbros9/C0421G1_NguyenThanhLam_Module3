@@ -3,7 +3,7 @@ package model.bean.service;
 public class Service {
     private int serviceId;
     private String serviceName;
-    private String serviceArea;
+    private int serviceArea;
     private double serviceCost;
     private String serviceMaxPeople;
     private int rentTypeId;
@@ -11,12 +11,12 @@ public class Service {
     private String standardRoom;
     private String descriptionOtherConvenience;
     private int poolArea;
-    private int numberOfFloor;
+    private int numberOfFloors;
 
     public Service() {
     }
 
-    public Service(int serviceId, String serviceName, String serviceArea, double serviceCost, String serviceMaxPeople, int rentTypeId, int serviceTypeId, String standardRoom, String descriptionOtherConvenience, int poolArea, int numberOfFloor) {
+    public Service(int serviceId, String serviceName, int serviceArea, double serviceCost, String serviceMaxPeople, int rentTypeId, int serviceTypeId, String standardRoom, String descriptionOtherConvenience, int poolArea, int numberOfFloors) {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.serviceArea = serviceArea;
@@ -27,10 +27,10 @@ public class Service {
         this.standardRoom = standardRoom;
         this.descriptionOtherConvenience = descriptionOtherConvenience;
         this.poolArea = poolArea;
-        this.numberOfFloor = numberOfFloor;
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public Service(String serviceName, String serviceArea, double serviceCost, String serviceMaxPeople, int rentTypeId, int serviceTypeId, String standardRoom, String descriptionOtherConvenience, int poolArea, int numberOfFloor) {
+    public Service(String serviceName, int serviceArea, double serviceCost, String serviceMaxPeople, int rentTypeId, int serviceTypeId, String standardRoom, String descriptionOtherConvenience, int poolArea, int numberOfFloors) {
         this.serviceName = serviceName;
         this.serviceArea = serviceArea;
         this.serviceCost = serviceCost;
@@ -40,7 +40,7 @@ public class Service {
         this.standardRoom = standardRoom;
         this.descriptionOtherConvenience = descriptionOtherConvenience;
         this.poolArea = poolArea;
-        this.numberOfFloor = numberOfFloor;
+        this.numberOfFloors = numberOfFloors;
     }
 
     public int getServiceId() {
@@ -59,11 +59,11 @@ public class Service {
         this.serviceName = serviceName;
     }
 
-    public String getServiceArea() {
+    public int getServiceArea() {
         return serviceArea;
     }
 
-    public void setServiceArea(String serviceArea) {
+    public void setServiceArea(int serviceArea) {
         this.serviceArea = serviceArea;
     }
 
@@ -123,11 +123,11 @@ public class Service {
         this.poolArea = poolArea;
     }
 
-    public int getNumberOfFloor() {
-        return numberOfFloor;
+    public int getNumberOfFloors() {
+        return numberOfFloors;
     }
 
-    public void setNumberOfFloor(int numberOfFloor) {
-        this.numberOfFloor = numberOfFloor;
+    public void setNumberOfFloors(int numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
     }
 }
