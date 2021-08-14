@@ -88,7 +88,7 @@
                 <div class="mb-3">
                     <label for="serviceMaxPeople" class="form-label">Service Max People</label>
                     <input type="text" name="serviceMaxPeople" class="form-control" id="serviceMaxPeople"
-                            value="${serviceObj.getServiceMaxPeople}">
+                           value="${serviceObj.getServiceMaxPeople}">
                 </div>
                 <div class="mb-3">
                     <label for="rentTypeId" class="form-label">Rent Type Name</label>
@@ -119,7 +119,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="descriptionOtherConvenience" class="form-label">Description Other Convenience</label>
-                    <input type="text" name="descriptionOtherConvenience" class="form-control" id="descriptionOtherConvenience"
+                    <input type="text" name="descriptionOtherConvenience" class="form-control"
+                           id="descriptionOtherConvenience"
                            value="${serviceObj.getDescriptionOtherConvenience()}">
                 </div>
                 <div class="mb-3">
@@ -132,12 +133,12 @@
                     <input type="text" name="numberOfFloors" class="form-control" id="numberOfFloors"
                            value="${serviceObj.getNumberOfFloors()}">
                 </div>
-                <button type="submit" class="btn btn-primary">Create Service</button>
-                <p>
-                    <c:if test="msg != null">
+                <div>
+                    <button type="submit" class="btn btn-primary">Create Service</button>
+                    <c:if test="${msg != null}">
                         ${msg}
                     </c:if>
-                </p>
+                </div>
             </form>
         </div>
     </div>

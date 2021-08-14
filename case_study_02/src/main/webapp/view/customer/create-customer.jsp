@@ -61,7 +61,7 @@
             <form method="post">
                 <legend align="center">Create Customer</legend>
                 <input type="hidden" name="action" value="create">
-                <input type="hidden" name="CustomerId" value="${customerObj.getCustomerId()}">
+                <input type="hidden" name="customerId" value="${customerObj.getCustomerId()}">
                 <div class="mb-3">
                     <label for="customerTypeId" class="form-label">Customer Type Id</label>
                     <select name="customerTypeId" class="form-select" id="customerTypeId">
