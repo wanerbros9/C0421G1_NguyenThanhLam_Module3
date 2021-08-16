@@ -59,11 +59,11 @@
                 <tr style="text-align: center">
                     <th scope="col">Contract id</th>
                     <th scope="col">Employee id</th>
+                    <th scope="col">Customer id</th>
                     <th scope="col">Service id</th>
                     <th scope="col">Contract Start Date</th>
                     <th scope="col">Contract End Date</th>
                     <th scope="col">Contract Deposit</th>
-                    <th scope="col">Contract Total Money</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -86,6 +86,7 @@
 <div class="container-fluid">
     <center>
         <a class="btn btn-success" href="/contract?action=create" role="button">Add New Contract</a>
+        <a class="btn btn-success" href="/contract?action=createDetail" role="button">Add New Contract Detail</a>
     </center>
 </div>
 <div class="container-fluid">

@@ -19,7 +19,7 @@ public class ContractRepository implements IContractRepository {
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = this.baseRepository.getConnection().prepareStatement(
-                    "select *from contract");
+                    "select * from contract");
             ResultSet resultSet = preparedStatement.executeQuery();
 
             Contract contract = new Contract();

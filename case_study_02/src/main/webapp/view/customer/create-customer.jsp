@@ -113,7 +113,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Create Customer</button>
                 <p>
-                    <c:if test="msg != null">
+                    <c:if test="${msg != null}">
                         ${msg}
                     </c:if>
                 </p>
