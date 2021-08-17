@@ -192,12 +192,12 @@ VALUES ('Diamond'),
         ('Member');
 
 INSERT INTO customer(customer_type_id, customer_name, customer_birthday, customer_gender, customer_id_card, customer_phone, customer_email, customer_address)
-VALUES (5, 'Minh', '2020-10-06', 1, 201562744, 0843670087, 'minh@gmail.com', 'Đà Nẵng'),
-		(1, 'Danh', '1997-08-22', 1, 201684297, 0394581627, 'danh@gmail.com', 'Huế'),
-		(1, 'Toàn', '1994-11-11', 1, 201251983, 0871555364, 'toan@gmail.com', 'Vinh'),
-		(2, 'Uyên', '1996-01-28', 0, 201523799, 0177646469, 'uyen@gmail.com', 'Quảng Trị'),
-		(4, 'Hiền', '1997-07-17', 0, 201588114, 0111346999, 'hien@gmail.com', 'Đà Nẵng'),
-		(1, 'Tiến', '1993-09-17', 1, 201599988, 0111312999, 'tien@gmail.com', 'Đà Nẵng');
+VALUES (5, 'Minh', '2020-10-06', 1, 201754136, 0843670087, 'minh@gmail.com', 'Đà Nẵng'),
+		(1, 'Danh', '1997-08-22', 1, 201168549, 0394581627, 'danh@gmail.com', 'Huế'),
+		(1, 'Toàn', '1994-11-11', 1, 209845217, 0871555364, 'toan@gmail.com', 'Vinh'),
+		(2, 'Uyên', '1996-01-28', 0, 230684752, 0177646469, 'uyen@gmail.com', 'Quảng Trị'),
+		(4, 'Hiền', '1997-07-17', 0, 209842584, 0111346999, 'hien@gmail.com', 'Đà Nẵng'),
+		(1, 'Tiến', '1993-09-17', 1, 2033648514, 0111312999, 'tien@gmail.com', 'Đà Nẵng');
         
 INSERT INTO service_type(service_type_name)
 VALUES ('Villa'),

@@ -3,6 +3,7 @@ package model.service;
 import model.bean.customer.Customer;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ICustomerService {
     List<Customer> findAll();
@@ -13,5 +14,5 @@ public interface ICustomerService {
 
     void remove(int customerId);
 
-    boolean create(Customer customer);
+    Map<String, String> create(Customer customer);
 }

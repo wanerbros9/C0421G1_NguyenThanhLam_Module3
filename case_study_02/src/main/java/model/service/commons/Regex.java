@@ -1,6 +1,6 @@
 package model.service.commons;
 
-public class Regex {
+public interface Regex {
     String CUSTOMER_CODE = "^KH-\\d{4}$";
     String SERVICE_CODE = "^DV-\\d{4}$";
     String PHONE_NUMBER = "^(09[0-1]\\d{7})|(\\(84\\)\\+9[01]\\d{7})$";

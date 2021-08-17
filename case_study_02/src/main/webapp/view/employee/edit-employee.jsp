@@ -11,8 +11,20 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <form method="post">
-                <legend align="center">Edit Employee</legend>
+            <legend align="center">Edit Employee</legend>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="list-group; col-lg-2" style="text-align: center">
+            <a href="/employee" class="list-group-item list-group-item-action">Employee</a>
+            <a href="/customer" class="list-group-item list-group-item-action">Customer</a>
+            <a href="/service" class="list-group-item list-group-item-action">Service</a>
+            <a href="/contract" class="list-group-item list-group-item-action">Contract</a>
+        </div>
+        <div class="col-lg-10">
+            <form method="post" style="width: 80%;">
                 <input type="hidden" name="action" value="update">
                 <input type="hidden" name="employeeId" value="${employeeObj.getEmployeeId()}">
                 <div class="mb-3">
@@ -65,7 +77,10 @@
                     <input type="text" name="employeeAddress" class="form-control" id="employeeAddress"
                            value="${employeeObj.getEmployeeAddress()}">
                 </div>
-                <button type="submit" class="btn btn-primary">Update Employee</button>
+<%--                <button type="submit" class="btn btn-primary">Update Employee</button>--%>
+                <a href="/employee">
+                    <button type="submit" class="btn btn-primary">Update Employee</button>
+                </a>
             </form>
         </div>
     </div>

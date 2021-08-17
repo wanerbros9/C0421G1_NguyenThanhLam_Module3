@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: HOME
-  Date: 15/08/2021
-  Time: 15:04
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,7 +6,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid" style="min-height: 100vh">
     <div class="row" style="text-align: center; border: 1px solid black; margin-top: 5px">
         <div class="col-lg-12">
             Footer...

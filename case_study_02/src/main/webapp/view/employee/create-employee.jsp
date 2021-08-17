@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <form method="post">
+            <form method="post" style="width: 80%;">
                 <legend align="center">Create Employee</legend>
                 <input type="hidden" name="action" value="create">
                 <input type="hidden" name="employeeId" value="${employeeObj.getEmployeeId()}">

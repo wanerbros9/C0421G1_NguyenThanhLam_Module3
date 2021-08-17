@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
@@ -57,7 +58,7 @@ public class CustomerServlet extends HttpServlet {
         customerTypeList = this.customerTypeRepository.ShowAll();
         request.setAttribute("customerTypeList", customerTypeList);
         try {
-            request.getRequestDispatcher("view/customer/create-customer.jsp").forward(request,response);
+            request.getRequestDispatcher("view/customer/create-customer.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -108,7 +109,7 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void createCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String msg = "Success";
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
         String customerName = request.getParameter("customerName");
@@ -122,19 +123,16 @@ public class CustomerServlet extends HttpServlet {
         Customer customer = new Customer(customerTypeId, customerName, customerBirthday, customerGender,
                 customerIdCard, customerPhone, customerEmail, customerAddress);
 
-        boolean result = this.iCustomerService.create(customer);
-        try {
-            if (result) {
-                request.setAttribute("msg", msg);
-            } else {
-                request.getRequestDispatcher("error-404.jsp").forward(request, response);
-            }
-            request.getRequestDispatcher("view/customer/create-customer.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        Map<String, String> result = this.iCustomerService.create(customer);
+        if (result.isEmpty()) {
+            request.setAttribute("msg", msg);
+        } else {
+            request.setAttribute("nameValidate", result.get("customerName"));
+            request.setAttribute("phoneValidate", result.get("customerPhone"));
+            request.setAttribute("emailValidate", result.get("customerEmail"));
+            request.setAttribute("customerObj",customer);
         }
+        showCreateCustomer(request, response);
     }
 
     private void editCustomer(HttpServletRequest request, HttpServletResponse response) {

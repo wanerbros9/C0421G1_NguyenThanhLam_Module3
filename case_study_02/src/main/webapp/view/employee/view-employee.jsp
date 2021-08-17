@@ -15,7 +15,7 @@
 </div>
 <div class="container-fluid">
     <div class="row" style="margin-top: 5px">
-        <div class="list-group; col-lg-1" style="text-align: center">
+        <div class="list-group col-lg-1" style="text-align: center">
             <a href="/employee" class="list-group-item list-group-item-action">Employee</a>
             <a href="/customer" class="list-group-item list-group-item-action">Customer</a>
             <a href="/service" class="list-group-item list-group-item-action">Service</a>
